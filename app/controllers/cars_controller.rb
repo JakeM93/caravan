@@ -4,6 +4,10 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
+  def my_cars
+    @cars = Car.where(user: current_user)
+  end
+
   def show
     @car = Car.find(params[:id])
   end
