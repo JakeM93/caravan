@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.car = @car
+    @booking.car = @car(params: car_id)
     @booking.user = @user
     if @booking.after_save 
       redirect to booking_path
