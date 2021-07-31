@@ -3,4 +3,8 @@ class CarsController < ApplicationController
     # Return all cars from DB
     @cars = Car.all
   end
+
+  def show
+    @car = Car.find(params[:id])
+  end
 end
