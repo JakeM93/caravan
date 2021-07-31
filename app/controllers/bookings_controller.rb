@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.car = @car(params: car_id)
     @booking.user = current_user
     if @booking.after_save 
-      redirect to car_booking_path
+      redirect to car_bookings_path(@car)
     else
       render :new
     end
