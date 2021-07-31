@@ -19,6 +19,11 @@ class CarsController < ApplicationController
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
+  def destroy
+    @list.destroy
+    redirect_to cars_path
+  end
+
   private
 
   def car_strong_params
