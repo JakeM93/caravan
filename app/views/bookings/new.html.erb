@@ -7,7 +7,9 @@
           <%= f.input :location, placeholder: 'address' %>
           <%= f.input :start_date, placeholder: 'start-date' %>
           <%= f.input :end_date, placeholder: 'end-date' %>
-          <%= f.association :car, prompt: 'Select a car', input_html: { class: 'select2' } %>
+          <%= @car.make %>
+          <%= @car.model %>
+          <%= @car.url %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
       </div>
