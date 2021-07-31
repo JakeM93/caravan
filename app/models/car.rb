@@ -1,5 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :user
+  has_many :bookings
 
   validates :model, :make, :fuel_type, presence: true, length: { maximum: 50 }
   validates :location, presence: true, length: { maximum: 100 } # full address?

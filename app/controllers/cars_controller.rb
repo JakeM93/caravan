@@ -9,6 +9,23 @@ class CarsController < ApplicationController
   end
 
   def new
+gi    # New instance of a car
     @car = Car.new
+  end
+
+  def create
+    # Creates new instance of a Car with strong params!
+    @car = Car.new(car_strong_params)
+    @car.save ? (redirect_to car_path(@car)) : (render :new)
+  end
+
+  private
+
+  def car_strong_params
+    # Permitted fields, update if adding any new car columns
+    params.require(:car).permit(
+      :make, :model, :location, :reg_number, :car_url,
+      :price, :description, :transmission, :fuel_type, :seats
+    )
   end
 end
