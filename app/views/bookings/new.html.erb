@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-        <h3>Add a movie to your <%= @list.name %> list</h3>
-        <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.input :location, placeholder: 'Enter a comment about the Car' %>
+        <h3>Make a booking for <%= @car.model %></h3>
+        <%= simple_form_for [@car, @booking] do |f| %>
+          <%= f.input :location, placeholder: 'Booking' %>
           <%= f.association :car, prompt: 'Select a car', input_html: { class: 'select2' } %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
