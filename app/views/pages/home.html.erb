@@ -1,6 +1,24 @@
-<h1>Welcome to Caravan.</h1>
-<p>Rent the car of your dreams</p>
-
-<%= link_to "#" do %>
-  <%= image_tag "car-home.png" %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1620812736363-65d1786b039c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80);">
+  <div class="container">
+    <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1>
+    <p>Find a car quickly for your last minute trips</p>
+    <a class="btn btn-flat" href="#">Browse a car</a>
+  </div>
+</div>
+<div class="container details">
+  <h2 class="text-center"> How it Works </h2>
+  <div class="cards">
+    <div class="card">
+      <%= image_tag "driver.svg", alt: "alttext" %>
+      <h3>Search for a car</h3>
+    </div>
+    <div class="card">
+      <%= image_tag "order.svg", alt: "alttext" %>
+      <h3>Create your booking</h3>
+    </div>
+    <div class="card">
+      <%= image_tag "car.svg", alt: "alttext" %>
+      <h3>Enjoy your trip</h3>
+    </div>
+  </div>
+</div>
