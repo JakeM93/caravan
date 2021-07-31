@@ -9,7 +9,7 @@ class CarsController < ApplicationController
   end
 
   def new
-gi    # New instance of a car
+    # New instance of a car
     @car = Car.new
   end
 
