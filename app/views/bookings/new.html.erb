@@ -4,7 +4,9 @@
       <div class="bg-white rounded p-3 shadow">
         <h3>Make a booking for <%= @car.model %></h3>
         <%= simple_form_for [@car, @booking] do |f| %>
-          <%= f.input :location, placeholder: 'Booking' %>
+          <%= f.input :location, placeholder: 'address' %>
+          <%= f.input :start_date, placeholder: 'start-date' %>
+          <%= f.input :end_date, placeholder: 'end-date' %>
           <%= f.association :car, prompt: 'Select a car', input_html: { class: 'select2' } %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
