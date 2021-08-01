@@ -1,2 +1,28 @@
-<h1>Your Cars</h1>
-<p>List of cars</p>
+<div class="container">
+  <h1>Hi <%= current_user.first_name %>, here are your cars</h1>
+  <ul>
+    <% @cars.each do |car| %>
+      <li>
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-sm-5">
+              <img src="#" alt="Car Image" class="card-img">
+            </div>
+            <div class="col-sm-7">
+              <div class="card-body">
+                <h5 class="card-title"><%= "#{car.make}/#{car.model}" %></h5>
+                <div>
+                    <!-- Font Awsome Row of buttons? Edit, Delete, View bookings -->
+                </div>
+                <div>
+                  <div><p>Created at: <%= car.created_at %></p></div>
+                  <div><p>Last Updated: <%= car.updated_at %></p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
