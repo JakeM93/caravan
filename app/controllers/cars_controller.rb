@@ -24,7 +24,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    @list.destroy
+    @car.destroy
     redirect_to cars_path
   end
 
