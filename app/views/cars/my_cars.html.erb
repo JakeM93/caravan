@@ -2,8 +2,7 @@
   <h1>Hi <%= current_user.first_name %>, here are your cars</h1>
   <ul class="list-group">
     <% @cars.each do |car| %>
-    <% last_updated = car.updated_at.strftime("%Y:%m:%d") %>
-    <% created_date = car.created_at.strftime("%Y:%m:%d") %>
+    <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       <li class="list-group-item">
         <!-- <div class="card"> -->
         <div class="row no-gutters">
@@ -13,7 +12,8 @@
           <div class="col-sm-7">
             <div class="card-body">
               <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
-              <div>
+              <div class="card-text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 <!-- Font Awsome Row of buttons? Edit, Delete, View bookings -->
               </div>
             </div>
@@ -21,10 +21,7 @@
         </div>
         <div class="row no-gutters justify-content-evenly">
           <div class="col">
-            <p>Updated: <%= last_updated %></p>
-          </div>
-          <div class="col">
-            <p>Creaded: <%= created_date %></p>
+            <p class="my_cars-list-updated">Last Updated: <%= last_updated %></p>
           </div>
         </div>
         <!-- </div> -->
