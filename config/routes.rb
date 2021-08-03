@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get '/cars/my_cars', to: 'cars#my_cars'
   get '/my_bookings', to: 'bookings#my_bookings'
   resources :cars do
+    collection do
+      get :my_cars
+    end
     resources :bookings, only: [ :new, :create, :index, :show, :destroy ]
   end
   # All Routes for now untill other models and routes are defined
