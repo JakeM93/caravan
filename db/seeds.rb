@@ -23,7 +23,7 @@ test_id = 0
   # Creating 3 Cars
   3.times do
     puts "Creating cars"
-    test_car = Car.create(model: Faker::Vehicle.manufacture,
+    test_car = Car.create(model: Faker::Vehicle.model,
       make: Faker::Vehicle.manufacture,
       location: Faker::Address.city,
       reg_number: Faker::Vehicle.license_plate,
@@ -62,7 +62,7 @@ fake_data_id = 0
   new_user.save!
 
   puts "Making Fake Car: #{fake_data_id}"
-  car = Car.create(model: Faker::Vehicle.manufacture,
+  car = Car.create(model: Faker::Vehicle.model,
     make: Faker::Vehicle.manufacture,
     location: Faker::Address.city,
     reg_number: Faker::Vehicle.license_plate,
