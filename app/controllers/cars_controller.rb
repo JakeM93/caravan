@@ -4,6 +4,10 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
+  def my_cars
+    @cars = Car.where(user_id: current_user.id)
+  end
+
   def show
     @car = Car.find(params[:id])
   end
@@ -20,7 +24,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    @list.destroy
+    @car.destroy
     redirect_to cars_path
   end
 
