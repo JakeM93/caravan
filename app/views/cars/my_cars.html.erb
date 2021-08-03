@@ -4,7 +4,6 @@
     <% @cars.each do |car| %>
       <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       <li class="list-group-item">
-        <!-- <div class="card"> -->
         <div class="row">
           <div class="col-sm-5">
             <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80 750w" alt="Car Image" style="width:100%;">
@@ -25,13 +24,12 @@
           </div>
           <div class="col-12">
             <div class="row justify-content-around">
-            <div class="list-button"><a href="/cars/<%=car.id%>"><i class="far fa-eye"></i></a></div>
+              <div class="list-button"><a href="/cars/<%=car.id%>"><i class="far fa-eye"></i></a></div>
               <div class="list-button"><a href="/cars/<%=car.id%>/edit"><i class="far fa-edit"></i></a></div>
               <div class="list-button"><a href="/cars/<%=car.id%>/destroy"><i class="far fa-trash-alt"></i></a></div>
             </div>
           </div>
         </div>
-        <!-- </div> -->
       </li>
     <% end %>
   </ul>
