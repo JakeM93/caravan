@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Hi <%= current_user.first_name %>, here are your cars</h1>
+  <ul class="list-group">
+    <% @cars.each do |car| %>
+      <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      <li class="list-group-item">
+        <!-- <div class="card"> -->
+        <div class="row">
+          <div class="col-sm-5">
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80 750w" alt="Car Image" style="width:100%;">
+          </div>
+          <div class="col-sm-7">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
+              <div class="card-text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <!-- Font Awsome Row of buttons? Edit, Delete, View bookings -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-evenly">
+          <div class="col-12">
+            <p class="list-updated text-muted">Last Updated: <%= last_updated %></p>
+          </div>
+          <div class="col-12">
+            <div class="row justify-content-around">
+              <div class="list-button"><a href="/cars/<%=car.id%>"><i class="far fa-eye"></i></a></div>
+              <div class="list-button"><a href="/cars/<%=car.id%>/edit"><i class="far fa-edit"></i></a></div>
+              <div class="list-button"><a href="/cars/<%=car.id%>/destroy"><i class="far fa-trash-alt"></i></a></div>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </li>
+    <% end %>
+  </ul>
+</div>
