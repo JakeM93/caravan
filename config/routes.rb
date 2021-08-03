@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/cars/my_cars', to: 'cars#my_cars'
+  get '/my_bookings', to: 'bookings#my_bookings'
   resources :cars do
     resources :bookings, only: [ :new, :create, :index, :show, :destroy ]
   end

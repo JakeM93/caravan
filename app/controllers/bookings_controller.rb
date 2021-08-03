@@ -4,10 +4,14 @@ class BookingsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
+  def my_bookings
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @car = Car.find(params: car_id)
+    @car = Car.find(car_id)
     if @booking.save 
       redirect_to car_bookings_path(@car)
     else
