@@ -8,11 +8,79 @@
 
 Car.destroy_all
 User.destroy_all
-new_user = User.new(email: Faker::Internet.email, first_name: "123456", last_name: "123456", password: "123456")
-new_user.save!
 
-100.times do 
-  car = Car.create(model: Faker::Company.name, user_id: new_user.id, transmission: Faker::Number.number(digits: 10), make: Faker::Company.suffix, fuel_type: Faker::Company.industry, location: Faker::Address.city, reg_number: Faker::Number.number(digits: 10), price: Faker::Number.decimal(l_digits: 2), seats: Faker::Number.between(from: 1, to: 8))
+# Create 5 test users with 3 cars and 2 bookings
+test_id = 0
+5.times do
+  test_id += 1
+  puts "Creating Test User: #{test_id}"
+  test_account = User.new(email: "test#{test_id}@test.com",
+    first_name: "test#{test_id}",
+    last_name: 'test',
+    password: 'tester')
+  test_account.save!
+
+  # Creating 3 Cars
+  3.times do
+    puts "Creating cars"
+    test_car = Car.create(model: Faker::Vehicle.model,
+      make: Faker::Vehicle.manufacture,
+      location: Faker::Address.city,
+      reg_number: Faker::Vehicle.license_plate,
+      price: 500.00,
+      user_id: test_account.id,
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      transmission: Faker::Vehicle.transmission,
+      fuel_type: Faker::Vehicle.fuel_type,
+      seats: Faker::Number.between(from: 2, to: 8))
+
+    # Creating bookings
+    1.times do
+      puts "Creating Bookings"
+      test_booking = Booking.new(start_date: DateTime.now,
+      end_date: DateTime.now + rand(2..14).days,
+      location: Faker::Address.city,
+      total_cost: test_car.price + rand(1..4),
+      active: true,
+      car_id: test_car.id,
+      user_id: test_account.id)
+      test_booking.save!
+    end
+    test_car.save!
+  end
+  test_account.save!
+end
+
+## Random Generated Data 
+
+fake_data_id = 0
+50.times do
+  fake_data_id += 1
+  puts ""
+  puts "Making Fake User: #{fake_data_id}"
+  new_user = User.new(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "123456")
+  new_user.save!
+
+  puts "Making Fake Car: #{fake_data_id}"
+  car = Car.create(model: Faker::Vehicle.model,
+    make: Faker::Vehicle.manufacture,
+    location: Faker::Address.city,
+    reg_number: Faker::Vehicle.license_plate,
+    price: 500.00,
+    user_id: new_user.id,
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    transmission: Faker::Vehicle.transmission,
+    fuel_type: Faker::Vehicle.fuel_type,
+    seats: Faker::Number.between(from: 2, to: 8))
   car.save!
-  puts "making car user"
+
+  puts "Creating Booking: #{fake_data_id}"
+  booking = Booking.new(start_date: DateTime.now,
+  end_date: DateTime.now + rand(2..14).days,
+  location: Faker::Address.city,
+  total_cost: car.price += rand(1..4),
+  active: true,
+  car_id: car.id,
+  user_id: new_user.id)
+  booking.save!
 end
