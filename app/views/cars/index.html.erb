@@ -1,32 +1,25 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white">
-    <h1>All cars.</h1>
+    <h1>There are <%=@cars.count%> cars matching your filters:</h1>
     <h3 class="typed-js"></h3>
   </div>
 </div>
+
 <div class="container-fluid">
-  <div class="row justify-content-center">
+  <div class="row">
     <% @cars.each do |car| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1">
-        <div class="card m-2">
-          <img class="card-img-top" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+        <div class="our-card card m-2 border-0">
+          <img class="card-img-top rounded-top" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+          <div class="d-flex justify-content-around">
+            <p class="card-text">£<%= car.price %> per day</p>
+            <p class="card-text"><%= car.seats %> seats</p>
+          </div>
           <div class="card-body">
             <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
-            <ul>
-              <li>
-                <p class="card-text"><%= car.price %></p>
-              </li>
-              <li>
-                <p class="card-text"><%= car.fuel_type %></p>
-              </li>
-              <li>
-                <p class="card-text"><%= car.transmission %></p>
-              </li>
-              <li>
-                <p class="card-text"><%= car.seats %></p>
-              </li>
-              <a href="/cars/<%=car.id%>" class="btn btn-primary">View Car</a>
-            </ul>
+            <p class="card-text"><%=car.description%></p>
+            <p class="card-text"><small class="text-muted">Listing created on <%=car.created_at%></small></p>
+            <a href="/cars/<%=car.id%>" class="btn btn-primary">View More Details</a>
           </div>
         </div>
       </div>

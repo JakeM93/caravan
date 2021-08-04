@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Hi <%= current_user.first_name %>, here are your cars</h1>
+  <h1>Hi <%= current_user.first_name %>, here are your cars:</h1>
   <ul class="list-group">
     <% @cars.each do |car| %>
       <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-      <li class="list-group-item">
+      <li class="list-group-item m-2">
         <div class="row">
           <div class="col-sm-5">
             <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80 750w" alt="Car Image" style="width:100%;">
@@ -33,4 +33,12 @@
       </li>
     <% end %>
   </ul>
+  <br>
+  <% if @cars.empty? %>
+    <h5>Seems like you don't have any cars for rent.</h5>
+    <br>
+    <h5>Would you like to create a new listing?</h5>
+  <% end %>
+  <br>
+  <%= link_to 'List a new car for rent', new_car_path, class: 'btn btn-primary' %>
 </div>
