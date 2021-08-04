@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: %I[index show]
+  before_action :find_car, only: [:show, :edit, :update]
 
   def index
     # Return all cars from DB
@@ -11,7 +12,6 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
   end
 
   def new
@@ -25,12 +25,24 @@ class CarsController < ApplicationController
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
+  def edit
+  end
+
+  def update
+    @car.update(car_strong_params)
+    redirect_to car_path(@car)
+  end
+
   def destroy
     @car.destroy
     redirect_to cars_path
   end
 
   private
+
+  def find_car
+    @car = Car.find(params[:id])
+  end
 
   def car_strong_params
     # Permitted fields, update if adding any new car columns
