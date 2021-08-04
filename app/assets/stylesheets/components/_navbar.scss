@@ -1,12 +1,21 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  font-size: 18px;
+  padding: 18px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.nav-item a:hover {
+  color: orange;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  height: 80px;
+}
+
+.nav-item {
+  padding: 8px;
 }
