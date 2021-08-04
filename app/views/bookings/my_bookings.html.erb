@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Hi <%= current_user.first_name %>, here are your bookings</h1>
+  <h1>Hi <%= current_user.first_name %>, here are your bookings:</h1>
   <ul class="list-group">
     <% @bookings.each do |booking| %>
       <% last_updated = booking.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-      <li class="list-group-item">
+      <li class="list-group-item m-2">
         <!-- <div class="card"> -->
         <div class="row">
           <div class="col-sm-5">
@@ -22,4 +22,12 @@
       </li>
     <% end %>
   </ul>
+  <br>
+  <% if @bookings.empty? %>
+    <h5>Seems like you haven't made any bookings yet.</h5>
+    <br>
+    <h5>Would you like to browse all available cars?</h5>
+  <% end %>
+  <br>
+  <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
 </div>
