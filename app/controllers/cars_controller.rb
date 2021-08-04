@@ -1,4 +1,6 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %I[index show]
+
   def index
     # Return all cars from DB
     @cars = Car.all
