@@ -22,6 +22,7 @@ class CarsController < ApplicationController
   def create
     # Creates new instance of a Car with strong params!
     @car = Car.new(car_strong_params)
+    @car.user_id = current_user.id
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
@@ -47,8 +48,8 @@ class CarsController < ApplicationController
   def car_strong_params
     # Permitted fields, update if adding any new car columns
     params.require(:car).permit(
-      :make, :model, :location, :reg_number, :car_url,
-      :price, :description, :transmission, :fuel_type, :seats
+      :model, :make, :location, :reg_number, :price, :description,
+      :transmission, :fuel_type, :seats, :user_id, car_url: []
     )
   end
 end
