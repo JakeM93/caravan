@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
+    # @car = Car.find(user_id: @bookings)
   end
 
   def create
