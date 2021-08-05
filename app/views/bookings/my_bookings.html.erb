@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-7">
             <div class="card-body">
-              <h5 class="card-title"><%= "#{booking.start_date} - #{booking.end_date}" %></h5>
+              <h5 class="card-title"><%= "#{booking.location} - #{Car.find(booking.car_id).make} : #{booking.start_date}" %></h5>
               <div class="card-text">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 <!-- Font Awsome Row of buttons? Edit, Delete, View bookings -->
