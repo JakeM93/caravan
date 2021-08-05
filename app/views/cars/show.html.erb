@@ -1,29 +1,31 @@
 <div class="container-fluid justify-content-center">
   <div class="row justify-content-center">
-  <% if !@car.car_url.empty? # only add carousel if custom images have been uploaded%>
-    <div style="max-width:420px;">
+    <div class="col text-center">
+    <% if !@car.car_url.empty? # only add carousel if custom images have been uploaded%>
       <!-- Bootstrap Carousel -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel" style="max-width:400px">
         <div class="carousel-inner">
           <% @car.car_url.each do |photo| %>
             <div class="carousel-item">
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block w-100' %>
+              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block' %>
             </div>
           <% end %>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
-        <!-- Bootstrap Carousel END-->
       </div>
-  <% else %>
-    <img src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
-  <% end %>
+      <!-- Bootstrap Carousel END-->
+    <% else %>
+      <img src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+    <% end %>
+    </div>
+    <div class="col" style="min-width:300px;">
       <div class="card-body">
         <h5 class="card-title"><%= "#{@car.make} - #{@car.model}" %></h5>
         <p class="card-text"><%=@car.description%></p>
@@ -39,10 +41,13 @@
         </div>
       </div>
     </div>
-        <script>
-          carousel = document.querySelector('#carouselExampleControls')
-          carousel_image = carousel.querySelector('.carousel-inner .carousel-item')
-          if(carousel_image){
-            carousel_image.classList.add('active')
-          }
-        </script>
+  </div>
+  <script>
+    carousel = document.querySelector('#carouselExampleControls')
+    carousel_image = carousel.querySelector('.carousel-inner .carousel-item')
+    if(carousel_image){
+      carousel_image.classList.add('active')
+    }
+  </script>
+</div>
+</div>
