@@ -29,7 +29,7 @@ test_id = 0
       reg_number: Faker::Vehicle.license_plate,
       price: 500.00,
       user_id: test_account.id,
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       transmission: Faker::Vehicle.transmission,
       fuel_type: Faker::Vehicle.fuel_type,
       seats: Faker::Number.between(from: 2, to: 8))
@@ -54,7 +54,7 @@ end
 ## Random Generated Data 
 
 fake_data_id = 0
-50.times do
+25.times do
   fake_data_id += 1
   puts ""
   puts "Making Fake User: #{fake_data_id}"
@@ -68,7 +68,7 @@ fake_data_id = 0
     reg_number: Faker::Vehicle.license_plate,
     price: 500.00,
     user_id: new_user.id,
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     transmission: Faker::Vehicle.transmission,
     fuel_type: Faker::Vehicle.fuel_type,
     seats: Faker::Number.between(from: 2, to: 8))
