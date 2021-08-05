@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    redirect_to my_bookings_car_bookings_path
   end
 
   def destroy
