@@ -34,10 +34,10 @@
         <p class="card-text"><small class="text-muted">Listing created on <%=@car.created_at%></small></p>
         <div class="btn-group" role="group">          
           <% if user_signed_in? && current_user.id == @car.user_id %>
-            <a href="<%=edit_car_path(@car)%>"><i class="far fa-edit edit-btn"></i></a>
-            <%= link_to '', car_path(@car), class: 'far fa-trash-alt delete-btn', method: :delete, data: { confirm: 'Are you sure you want to delete this car!?' } %>
+            <a href="<%=edit_car_path(@car)%>"><i class="far fa-edit edit-btn action-btn-large"></i></a>
+            <%= link_to '', car_path(@car), class: 'far fa-trash-alt delete-btn action-btn-large', method: :delete, data: { confirm: 'Are you sure you want to delete this car!?' } %>
           <% else %>
-            <a href="<%=new_car_booking_path(@car)%>"><i class="far fa-calendar-check book-btn"></i></a>
+            <a href="<%=new_car_booking_path(@car)%>"><i class="far fa-calendar-check book-btn action-btn-large"></i></a>
           <% end %>
         </div>
       </div>

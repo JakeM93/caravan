@@ -16,9 +16,15 @@
   background: #1BCB7F;
   color: white;
 }
+.action-btn-large{
+  font-size: 52px;
+}
+
+.my-pages-action-btn {
+  font-size: 26px;
+}
 
 .book-btn, .edit-btn, .delete-btn {
-  font-size: 52px;
   margin: 0 5px;
 }
 .book-btn:active, .book-btn:hover {
