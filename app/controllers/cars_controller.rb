@@ -39,6 +39,11 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  # Generate Address where car is located, give option for Owners Address?
+  def address
+    [street, city, state_town, country].compact.join(', ')
+  end
+
   private
 
   def find_car
