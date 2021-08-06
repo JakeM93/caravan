@@ -1,0 +1,18 @@
+.text-container-dark {
+  background-color: #16151C;
+  width: 500px;
+  height: 100%;
+  border: 5px #000000 solid;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.car-show-image {
+  height: fit-content;
+}
+
+@media only screen and (max-width: 1000px) {
+  .car-show-map {
+      display: none;
+  }
+}

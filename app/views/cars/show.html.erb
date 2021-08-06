@@ -1,7 +1,7 @@
 <div class="container-fluid justify-content-center">
   <div class="row justify-content-center">
-    <div class="col text-center">
-    <% if !@car.car_url.empty? # only add carousel if custom images have been uploaded%>
+    <div class="col-xs-1 col-l-6 m-auto shadow text-center">
+      <% if !@car.car_url.empty? # only add carousel if custom images have been uploaded%>
       <!-- Bootstrap Carousel -->
       <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel" style="max-width:400px">
         <div class="carousel-inner">
@@ -22,11 +22,11 @@
       </div>
       <!-- Bootstrap Carousel END-->
     <% else %>
-      <img src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+      <img class="car-show-image" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
     <% end %>
     </div>
-    <div class="col" style="min-width:300px;">
-      <div class="card-body">
+    <div class="col-xs-1 col-l-6 m-auto shadow" style="min-width:300px;">
+      <div class="card-body text-container-dark">
         <h5 class="card-title"><%= "#{@car.make} - #{@car.model}" %></h5>
         <p class="card-text"><%=@car.description%></p>
         <p class="card-text">£<%= @car.price %> per day</p>
