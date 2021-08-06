@@ -9,6 +9,8 @@
 Car.destroy_all
 User.destroy_all
 
+Faker::Config.locale = 'en'
+
 # Create 5 test users with 3 cars and 2 bookings
 test_id = 0
 5.times do
@@ -25,7 +27,7 @@ test_id = 0
     puts "Creating cars"
     test_car = Car.create(model: Faker::Vehicle.model,
       make: Faker::Vehicle.manufacture,
-      location: Faker::Address.city,
+      location: Faker::Address.postcode,
       reg_number: Faker::Vehicle.license_plate,
       price: 500.00,
       user_id: test_account.id,
@@ -64,7 +66,7 @@ fake_data_id = 0
   puts "Making Fake Car: #{fake_data_id}"
   car = Car.create(model: Faker::Vehicle.model,
     make: Faker::Vehicle.manufacture,
-    location: Faker::Address.city,
+    location: Faker::Address.postcode,
     reg_number: Faker::Vehicle.license_plate,
     price: 500.00,
     user_id: new_user.id,
@@ -77,7 +79,7 @@ fake_data_id = 0
   puts "Creating Booking: #{fake_data_id}"
   booking = Booking.new(start_date: DateTime.now,
   end_date: DateTime.now + rand(2..14).days,
-  location: Faker::Address.city,
+  location: Faker::Address.postcode,
   total_cost: car.price += rand(1..4),
   active: true,
   car_id: car.id,
