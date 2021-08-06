@@ -21,11 +21,11 @@
   font-size: 52px;
   margin: 0 5px;
 }
-.book-btn:hover, .edit-btn:hover {
+.book-btn:active, .book-btn:hover {
   color: rgb(51, 255, 0);
 }
 
-.book-btn:active, .edit-btn:active {
+.edit-btn:active, .edit-btn:hover {
   color: orange;
 }
 
