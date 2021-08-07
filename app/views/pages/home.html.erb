@@ -4,8 +4,17 @@
     <!-- <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1> -->
     <br>
     <p class="animate__animated animate__backInLeft">Find a car for your last minute trips</p>
+    <%= form_tag cars_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a car by location, make or model"
+      %>
+      <br>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     <br>
-    <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
+    <%= link_to 'Browse all cars', cars_path, class: 'btn btn-primary' %>
     <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
   </div>
 </div>
