@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: %I[index show]
-  before_action :find_car, only: [:show, :edit, :update]
+  before_action :find_car, only: [:edit, :update]
 
   def index
     if params[:query].present?
@@ -16,6 +16,11 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.find(params[:id])
+    @markers = {
+      lat: @car.latitude,
+      lng: @car.longitude
+    }
   end
 
   def new
