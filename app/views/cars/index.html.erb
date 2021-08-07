@@ -1,8 +1,23 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white">
-    <h1>There are <%=@cars.count%> cars matching your filters:</h1>
+    <% if params[:query].present? %>
+      <h1>There are <%=@cars.count%> cars matching your filters:</h1>
+    <% else %>
+      <h1>There are <%=@cars.count%> cars available now:</h1>
+    <% end %>
     <h3 class="typed-js"></h3>
   </div>
+</div>
+<div class="container">
+  <%= form_tag cars_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search for a car by location, make or model"
+    %>
+    <br>
+    <%= submit_tag "Search Again", class: "btn btn-primary" %>
+  <% end %>
 </div>
 <div class="container-fluid">
   <div class="row">
@@ -38,3 +53,7 @@
     <% end %>
   </div>
 </div>
+
+<br>
+<br>
+<br>
