@@ -23,6 +23,7 @@ class CarsController < ApplicationController
     # Creates new instance of a Car with strong params!
     @car = Car.new(car_strong_params)
     @car.user_id = current_user.id
+    @car.location = "#{@car.house_num} #{@car.street}, #{@car.city}, #{@car.town}, #{@car.postal_code}, #{@car.country}"
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
@@ -39,11 +40,6 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
-  # Generate Address where car is located, give option for Owners Address?
-  def address
-    [street, city, state_town, country].compact.join(', ')
-  end
-
   private
 
   def find_car
@@ -53,8 +49,9 @@ class CarsController < ApplicationController
   def car_strong_params
     # Permitted fields, update if adding any new car columns
     params.require(:car).permit(
-      :model, :make, :location, :reg_number, :price, :description,
-      :transmission, :fuel_type, :seats, :user_id, car_url: []
+      :model, :make, :location, :reg_number, :price, :user_id, :description,
+      :transmission, :fuel_type, :seats, :longitude, :latitude, :house_num,
+      :street, :city, :town, :postal_code, :country, car_url: []
     )
   end
 end
