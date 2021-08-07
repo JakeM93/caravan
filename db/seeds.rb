@@ -11,8 +11,29 @@ User.destroy_all
 
 Faker::Config.locale = 'en'
 
+# Test Addresses for test accounts
+addrs = [
+  [11,"New Goulston Street","London","","E1 7EX","United Kingdom"],
+  [12,"Cobb Street","London","","E1 7LB","United Kingdom"],
+  [7,"Pomell Way","London","","E1 6NE","United Kingdom"],
+  [6,"Rue Larribe","Paris","","75008","France"],
+  [18,"Rue Loubouteux","Paris","","75017","France"],
+  [12,"Rue Dulong","Paris","","75017","France"],
+  [2,"New Goulston Street","London","","E1 7EX","United Kingdom"],
+  [8,"Cobb Street","London","","E1 7LB","United Kingdom"],
+  [3,"Pomell Way","London","","E1 6NE","United Kingdom"],
+  [1,"Rue Larribe","Paris","","75008","France"],
+  [10,"Rue Loubouteux","Paris","","75017","France"],
+  [4,"Rue Dulong","Paris","","75017","France"],
+  [5,"Rue Larribe","Paris","","75008","France"],
+  [3,"Rue Loubouteux","Paris","","75017","France"],
+  [6,"Rue Dulong","Paris","","75017","France"],
+]
+
 # Create 5 test users with 3 cars and 2 bookings
 test_id = 0
+addr_id = 0
+
 5.times do
   test_id += 1
   puts "Creating Test User: #{test_id}"
@@ -27,14 +48,21 @@ test_id = 0
     puts "Creating cars"
     test_car = Car.create(model: Faker::Vehicle.model,
       make: Faker::Vehicle.manufacture,
-      location: Faker::Address.postcode,
       reg_number: Faker::Vehicle.license_plate,
       price: 500.00,
       user_id: test_account.id,
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       transmission: Faker::Vehicle.transmission,
       fuel_type: Faker::Vehicle.fuel_type,
-      seats: Faker::Number.between(from: 2, to: 8))
+      seats: Faker::Number.between(from: 2, to: 8),
+      house_num: addrs[addr_id][0],
+      street: addrs[addr_id][1],
+      city: addrs[addr_id][2],
+      town: addrs[addr_id][3],
+      postal_code: addrs[addr_id][4],
+      country: addrs[addr_id][5],
+      location: addrs[addr_id][4])
+      addr_id += 1
 
     # Creating bookings
     1.times do
