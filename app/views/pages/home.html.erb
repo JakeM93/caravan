@@ -1,28 +1,31 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1620812736363-65d1786b039c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80);">
-  <div class="container">
-    <h1 class="animate__animated animate__backInLeft">Caravan - Rent the <strong>car</strong> of your dreams </h1>
-    <!-- <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1> -->
-    <br>
-    <p class="animate__animated animate__backInLeft">Find a car for your last minute trips</p>
-    <br>
-    <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
-    <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
+<div class="d-flex">
+  <div class="banner flex-item flex-item-grow" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1617814498655-ea350a397174?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTg1fHx0ZXNsYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
+    <div class="container-banner">
+      <h1 class="animate__animated animate__backInLeft">Caravan - Rent the <strong>car</strong> of your dreams </h1>
+      <!-- <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1> -->
+      <br>
+      <p class="animate__animated animate__backInLeft">Find a car for your last minute trips</p>
+      <br>
+      <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
+      <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
+    </div>
   </div>
-</div>
-<div class="container details">
-  <h2 class="text-center"> How it Works </h2>
-  <div class="cards">
-    <div class="card">
-      <%= image_tag "driver.svg", alt: "alttext" %>
-      <h3>Search for a car</h3>
-    </div>
-    <div class="card">
-      <%= image_tag "order.svg", alt: "alttext" %>
-      <h3>Create your booking</h3>
-    </div>
-    <div class="card">
-      <%= image_tag "car.svg", alt: "alttext" %>
-      <h3>Enjoy your trip</h3>
+  <div class="container details flex-item">
+    <div class="cards">
+      <div class="card animate__animated animate__flipInX">
+        <%= image_tag "driver.svg", alt: "alttext" %>
+        <h3>Search for a car</h3>
+      </div>
+      <br>
+      <div class="card animate__animated animate__flipInX">
+        <%= image_tag "order.svg", alt: "alttext" %>
+        <h3>Create your booking</h3>
+      </div>
+      <br>
+      <div class="card animate__animated animate__flipInX">
+        <%= image_tag "car.svg", alt: "alttext" %>
+        <h3>Enjoy your trip</h3>
+      </div>
     </div>
   </div>
 </div>
