@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// global styling
+
+.body-dark-theme {
+  background-color: $dark-navy;
+}

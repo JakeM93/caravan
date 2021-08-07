@@ -1,0 +1,31 @@
+.text-container-dark {
+  background-color: $dark-violet;
+  width: 100%;
+  height: 100%;
+  border: 5px #000000 solid;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.car-show-image {
+  height: fit-content;
+  border-radius: 10px;
+  border: 2px grey solid;
+}
+
+@media only screen and (max-width: 1000px) {
+  .car-show-map {
+      display: none;
+  }
+}
+
+// used in my_cars and my_bookings
+.list-body-dark {
+  background-color: $dark-violet;
+}
+
+.card-car-detail {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}

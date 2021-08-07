@@ -4,20 +4,32 @@
     <h3 class="typed-js"></h3>
   </div>
 </div>
-
 <div class="container-fluid">
   <div class="row">
     <% @cars.each do |car| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1">
-        <div class="our-card card m-2 border-0">
-          <img class="card-img-top rounded-top" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1 mt-5 text-center">
+        <div class="our-card card m-auto border-0">
+          <img class="card-img-top rounded-top" style="height:175px;" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
           <div class="d-flex justify-content-around">
-            <p class="card-text">£<%= car.price %> per day</p>
-            <p class="card-text"><%= car.seats %> seats</p>
-          </div>
-          <div class="card-body">
             <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
-            <p class="card-text"><%=car.description%></p>
+          </div>
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col">
+                <ul class="m-0" style="padding:0;text-align-left">
+                  <li class="card-text card-car-detail">£<%= car.price %> per day</li>
+                  <li class="card-text card-car-detail"><%= car.seats %> <i class="fas fa-chair"></i></li>
+                  <li class="card-text card-car-detail"><%= car.location%></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="rating">
+                <input type="radio" name="rating" value="5" id="5">
+                <label for="5">☆</label>
+                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+              </div>
+            </div>
             <p class="card-text"><small class="text-muted">Listing created on <%=car.created_at%></small></p>
             <a href="/cars/<%=car.id%>" class="btn btn-primary">View More Details</a>
           </div>
