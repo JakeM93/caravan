@@ -4,7 +4,7 @@ class Car < ApplicationRecord
   has_many_attached :car_url
 
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :geocode
 
   validates :model, :make, :fuel_type, presence: true, length: { maximum: 50 }
   validates :reg_number, :transmission, presence: true, length: { maximum: 10 }
