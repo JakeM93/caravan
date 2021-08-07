@@ -27,7 +27,7 @@ class CarsController < ApplicationController
     # Creates new instance of a Car with strong params!
     @car = Car.new(car_strong_params)
     @car.user_id = current_user.id
-    @car.location = @car.postal_code
+    @car.location = @car.address # Formatted address for geocoder, House Num, Street, Postal Code
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
