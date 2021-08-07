@@ -53,7 +53,7 @@ class CarsController < ApplicationController
   def car_strong_params
     # Permitted fields, update if adding any new car columns
     params.require(:car).permit(
-      :model, :make, :location, :reg_number, :price, :user_id, :description,
+      :model, :make, :reg_number, :price, :user_id, :description,
       :transmission, :fuel_type, :seats, :longitude, :latitude, :house_num,
       :street, :city, :town, :postal_code, :country, car_url: []
     )
