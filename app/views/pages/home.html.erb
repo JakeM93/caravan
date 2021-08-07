@@ -6,6 +6,17 @@
     <br>
     <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
     <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
+    <br>
+    <br>
+    <%= form_tag cars_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a car"
+      %>
+      <br>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 <div class="container details">
