@@ -3,20 +3,18 @@
     <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1>
     <br>
     <p>Find a car quickly for your last minute trips</p>
-    <br>
-    <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
-    <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
-    <br>
-    <br>
     <%= form_tag cars_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Find a car"
+        placeholder: "Search for a car by location, model, or number of seats"
       %>
       <br>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+    <br>
+    <%= link_to 'Browse all cars', cars_path, class: 'btn btn-primary' %>
+    <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
   </div>
 </div>
 <div class="container details">
