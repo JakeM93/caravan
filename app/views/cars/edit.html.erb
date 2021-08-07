@@ -1,21 +1,9 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="rounded p-3 shadow form-container-dark">
         <h3>Edit the Car</h3>
-        <%= simple_form_for @car do |f| %>
-          <%= f.input :make, placeholder: 'Vauxhall' %>
-          <%= f.input :model, placeholder: 'Corsa' %>
-          <%= f.input :location, placeholder: 'PostCode / Zip Code' %>
-          <%= f.input :reg_number, placeholder: 'DF03-TTT' %>
-          <%= f.input :car_url, label: "Car Photos", as: :file, input_html: { multiple: true } %>
-          <%= f.input :price, placeholder: 'Price' %>
-          <%= f.input :description, placeholder: 'Description' %>
-          <%= f.input :transmission, placeholder: 'Automatic/ Manual' %>
-          <%= f.input :fuel_type, placeholder: 'Petrol / Gas ..' %>
-          <%= f.input :seats, placeholder: '5' %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+        <%= render "form", car: @car %>
       </div>
     </div>
   </div>
