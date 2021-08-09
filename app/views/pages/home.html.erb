@@ -17,10 +17,10 @@
     <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
     <h1 class="animate__animated animate__backInLeft mt-4">Our latest cars:</h1>
     <div class="d-flex mt-4">
-      <% @cars = Car.last(3) %>
+      <% @cars = Car.first(3) %>
       <% @cars.each do |car| %>
       <div class="home-card m-auto border-0">
-        <img class="card-img-top rounded-top" style="height:120px;" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+        <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:120px;", alt: "alttext" %>
         <div class="d-flex justify-content-around">
           <p><%= car.seats %> <i class="fas fa-chair"></i></p>
           <p><%= car.location %></p>

@@ -48,11 +48,10 @@ addr_id = 0
   3.times do
     puts "Creating cars"
     test_car = Car.create(model: Faker::Vehicle.model,
-      make: Faker::Vehicle.manufacture,
+      make: Faker::Vehicle.make,
       reg_number: Faker::Vehicle.license_plate,
       price: Faker::Number.between(from: 10, to: 100),
       user_id: test_account.id,
-      car_url: Faker::LoremFlickr.image(size: "170x100", search_terms: ['car']),
       description: Faker::Lorem.sentences,
       transmission: Faker::Vehicle.transmission,
       fuel_type: Faker::Vehicle.fuel_type,
@@ -95,12 +94,11 @@ fake_data_id = 0
 
   puts "Making Fake Car: #{fake_data_id}"
   car = Car.create(model: Faker::Vehicle.model,
-    make: Faker::Vehicle.manufacture,
+    make: Faker::Vehicle.make,
     location: Faker::Address.postcode,
     reg_number: Faker::Vehicle.license_plate,
     price: Faker::Number.between(from: 10, to: 100),
     user_id: new_user.id,
-    car_url: Faker::LoremFlickr.image(size: "170x100", search_terms: ['car']),
     description: Faker::Lorem.sentences,
     transmission: Faker::Vehicle.transmission,
     fuel_type: Faker::Vehicle.fuel_type,
@@ -116,4 +114,12 @@ fake_data_id = 0
   car_id: car.id,
   user_id: new_user.id)
   booking.save!
+end
+
+hello_seeds = Car.all
+hello_seeds.each do |seed|
+  url = Faker::LoremFlickr.image(size: "400x300", search_terms: ['car'])
+  file = URI.open(url)
+  seed.photos.attach(io: file, filename: Faker::File.file_name, content_type: 'image/png')
+  puts "attached photo to seed"
 end
