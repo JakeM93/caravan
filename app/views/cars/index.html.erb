@@ -1,5 +1,5 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
+  <div class="text-center text-gray">
     <% if params[:query].present? %>
       <h1>There are <%=@cars.count%> cars matching your filters:</h1>
     <% else %>
@@ -9,14 +9,14 @@
   </div>
 </div>
 <div class="container">
-  <%= form_tag cars_path, method: :get do %>
+  <%= form_tag cars_path, class: "form-inline", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control col-md-11",
       placeholder: "Search for a car by location, make or model"
     %>
     <br>
-    <%= submit_tag "Search Again", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-primary ml-2" %>
   <% end %>
 </div>
 <div class="container-fluid">
