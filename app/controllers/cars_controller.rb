@@ -39,8 +39,9 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path
+    redirect_to my_cars_cars_path
   end
 
   # Generate Address where car is located, give option for Owners Address?

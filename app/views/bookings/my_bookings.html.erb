@@ -16,7 +16,12 @@
               <p>From: <%= booking.start_date %></p>
               <p>To: <%= booking.end_date %></p>
               <p><%= Car.find(booking.car_id).description %></p>
-              <a href="/cars/<%=booking.car_id%>" class="btn btn-primary mb-3">Car Details</a>
+              <a href="/cars/<%=booking.car_id%>" class="btn btn-primary">Car Details</a>
+              <%= link_to "Cancel Booking",
+                  "/cars/#{booking.car_id}/bookings/#{booking.id}",
+                  method: :delete,
+                  class: "btn btn-primary",
+                  data: { confirm: "Are you sure?" } %>
             </div>
           </div>
         </div>
