@@ -1,10 +1,14 @@
+.animate__animated {
+  --animate-duration: 2s;
+  --animate-delay: 0.2s;
+}
+
 .banner {
   background-size: cover;
-  color: whitesmoke;
-
+  background-color: #0d0f1a;
   background-position: center;
-  height:90vh;
-  padding: 150px 0;
+  height: 100vh;
+  padding: 60px 80px;
   margin-bottom: 30px;
 }
 
@@ -16,31 +20,45 @@
 }
 
 .banner p {
-  font-size: 20px;
   opacity: .7;
   text-shadow: 1px 1px 3px #08070A;
 }
 
+#tagline {
+  font-size: 20px;
+}
+
 .card {
   img {
-    height:120px;
-    margin-bottom:8px;
+    height: 120px;
+    margin-bottom: 8px;
   }
   text-align: center;
-  border: 1px solid lightgrey;
+  border: 1px solid grey;
   width: 300px;
-  border-radius:5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.home-card {
+  font-size: 16px;
+  height: auto;
+  background-color: #2A2631;
+  img {
+    margin-bottom: 8px;
+  }
+  text-align: center;
+  width: 260px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .cards {
-  display: flex;
-  justify-content: space-around;
   margin-top: 30px;
-
 }
 
 .details {
-  height:40vh;
+  height: 40vh;
   padding-bottom: 30px;
 }
 
