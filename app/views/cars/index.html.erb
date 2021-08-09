@@ -24,7 +24,8 @@
     <% @cars.each do |car| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1 mt-5 text-center">
         <div class="our-card card m-auto border-0">
-          <img class="card-img-top rounded-top" style="height:175px;" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+          <%= image_tag "#{car[:car_url]}", class: "card-img-top rounded-top", style: "height:175px;", alt: "alttext" %>
+          
           <div class="d-flex justify-content-around">
             <p><%= car.seats %> <i class="fas fa-chair"></i></p>
             <p><%= car.location %></p>
