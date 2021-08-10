@@ -1,5 +1,5 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
+  <div class="text-center text-gray">
     <% if params[:query].present? %>
       <h1>There are <%=@cars.count%> cars matching your filters:</h1>
     <% else %>
@@ -9,14 +9,13 @@
   </div>
 </div>
 <div class="container">
-  <%= form_tag cars_path, method: :get do %>
+  <%= form_tag cars_path, class: "box", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "box",
       placeholder: "Search for a car by location, make or model"
     %>
-    <br>
-    <%= submit_tag "Search Again", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "box" %>
   <% end %>
 </div>
 <div class="container-fluid">
@@ -24,29 +23,27 @@
     <% @cars.each do |car| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1 mt-5 text-center">
         <div class="our-card card m-auto border-0">
-          <img class="card-img-top rounded-top" style="height:175px;" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+        <% if car.photos.empty?%>
+          <%= image_tag "CarPlaceholder.jpg" %>
+        <% else %>
+          <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:175px;", alt: "alttext" %>
+        <% end %>
           <div class="d-flex justify-content-around">
-            <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
+            <p><%= car.seats %> <i class="fas fa-chair"></i></p>
+            <p><%= car.location %></p>
           </div>
+          <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
           <div class="card-body p-0">
-            <div class="row">
-              <div class="col">
-                <ul class="m-0" style="padding:0;text-align-left">
-                  <li class="card-text card-car-detail">£<%= car.price %> per day</li>
-                  <li class="card-text card-car-detail"><%= car.seats %> <i class="fas fa-chair"></i></li>
-                  <li class="card-text card-car-detail"><%= car.location%></li>
-                </ul>
-              </div>
-            </div>
+            <p class="m-0">£<%= car.price %> per day</p>
             <div class="row justify-content-center">
-              <div class="rating">
+              <div class="rating mb-2">
                 <input type="radio" name="rating" value="5" id="5">
                 <label for="5">☆</label>
                 <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
               </div>
             </div>
-            <p class="card-text"><small class="text-muted">Listing created on <%=car.created_at%></small></p>
-            <a href="/cars/<%=car.id%>" class="btn btn-primary">View More Details</a>
+            <a href="/cars/<%=car.id%>" class="btn btn-box mb-3">More Details</a>
+            <a href="/cars/<%=car.id%>/bookings/new" class="btn btn-box mb-3">Book Now</a>
           </div>
         </div>
       </div>

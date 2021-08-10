@@ -6,14 +6,13 @@
       <li class="list-group-item m-2 list-body-dark">
         <div class="row">
           <div class="col-sm-5">
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80 750w" alt="Car Image" style="width:100%;">
+            <%= cl_image_tag car.photos[0].key, class: "car-show-image shadow", alt: "alttext" %>
           </div>
           <div class="col-sm-7">
             <div class="card-body">
               <h5 class="card-title"><%= "#{car.make} - #{car.model}" %></h5>
               <div class="card-text">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                <!-- Font Awsome Row of buttons? Edit, Delete, View bookings -->
+                <%= car.description %>
               </div>
             </div>
           </div>
@@ -26,7 +25,7 @@
             <div class="row justify-content-around align-content-center">
               <div class="list-button"><a href="/cars/<%=car.id%>"><i class="far fa-eye book-btn my-pages-action-btn"></i></a></div>
               <div class="list-button"><a href="/cars/<%=car.id%>/edit"><i class="far fa-edit edit-btn my-pages-action-btn"></i></a></div>
-              <div class="list-button"><a href="/cars/<%=car.id%>/destroy"><i class="far fa-trash-alt delete-btn my-pages-action-btn"></i></a></div>
+              <div class="list-button"><a href="/cars/<%=car.id%>" method="delete"><i class="far fa-trash-alt delete-btn my-pages-action-btn"></i></a></div>
             </div>
           </div>
         </div>
@@ -40,5 +39,5 @@
     <h5>Would you like to create a new listing?</h5>
   <% end %>
   <br>
-  <%= link_to 'List a new car for rent', new_car_path, class: 'btn btn-primary' %>
+  <%= link_to 'List a new car for rent', new_car_path, class: 'btn btn-box' %>
 </div>

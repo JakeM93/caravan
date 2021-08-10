@@ -5,7 +5,7 @@ ruby '2.6.6'
 
 # Additional gems we've added
 gem 'devise'
-
+gem 'open-uri'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4'
 # Use postgresql as the database for Active Record

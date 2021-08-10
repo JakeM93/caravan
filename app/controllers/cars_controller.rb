@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: %I[index show]
-  before_action :find_car, only: [:show, :edit, :update]
+  before_action :find_car, only: [:edit, :update]
 
   def index
     if params[:query].present?
@@ -16,6 +16,11 @@ class CarsController < ApplicationController
   end
 
   def show
+    @car = Car.find(params[:id])
+    @markers = {
+      lat: @car.latitude,
+      lng: @car.longitude
+    }
   end
 
   def new
@@ -27,6 +32,7 @@ class CarsController < ApplicationController
     # Creates new instance of a Car with strong params!
     @car = Car.new(car_strong_params)
     @car.user_id = current_user.id
+    @car.location = @car.address # Formatted address for geocoder, House Num, Street, Postal Code
     @car.save ? (redirect_to car_path(@car)) : (render :new)
   end
 
@@ -39,13 +45,9 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path
-  end
-
-  # Generate Address where car is located, give option for Owners Address?
-  def address
-    [street, city, state_town, country].compact.join(', ')
+    redirect_to my_cars_cars_path
   end
 
   private
@@ -57,8 +59,9 @@ class CarsController < ApplicationController
   def car_strong_params
     # Permitted fields, update if adding any new car columns
     params.require(:car).permit(
-      :model, :make, :location, :reg_number, :price, :description,
-      :transmission, :fuel_type, :seats, :user_id, car_url: []
+      :model, :make, :reg_number, :price, :user_id, :description,
+      :transmission, :fuel_type, :seats, :longitude, :latitude, :house_num,
+      :street, :city, :town, :postal_code, :country, photos: []
     )
   end
 end

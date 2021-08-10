@@ -1,8 +1,13 @@
+.animate__animated {
+  --animate-duration: 2s;
+  --animate-delay: 0.2s;
+}
+
 .banner {
   background-size: cover;
+  background-color: #0d0f1a;
   background-position: center;
-  height:80vh;
-  width:237%;
+  height:120vh;
   padding: 150px 0;
   margin-bottom: 30px;
 }
@@ -14,38 +19,54 @@
 }
 .banner h1 {
   margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px #08070A;
   font-size: 32px;
   font-weight: bold;
 }
 
 .banner p {
-  font-size: 20px;
-  color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}// Specific CSS for your home-page
+  text-shadow: 1px 1px 3px #08070A;
+}
+
+#tagline {
+  font-size: 20px;
+}
+
 .card {
   img {
-    height:70px;
-    margin-bottom:3px;
+    height: 120px;
+    margin-bottom: 8px;
   }
   text-align: center;
-  border: 1px solid lightgrey;
-  width: auto;
-  border-radius:5px;
+  border: 1px solid grey;
+  width: 300px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
-.cards {
-  // display: flex;
-  // justify-content: space-around;
-  margin-top: 10px;
 
+.home-card {
+  font-size: 16px;
+  height: auto;
+  background-color: #2A2631;
+  img {
+    margin-bottom: 8px;
+  }
+  text-align: center;
+  width: 260px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
+
+.cards {
+  margin-top: 30px;
+}
+
 .details {
-  height:35vh;
-  padding-bottom: 20px;
+  height: 40vh;
+  padding-bottom: 30px;
 }
+
 .avatar {
   width: 40px;
   border-radius: 50%;

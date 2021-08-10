@@ -1,28 +1,33 @@
-<div class="d-flex">
-  <div class="banner flex-item flex-item-grow" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1617814498655-ea350a397174?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTg1fHx0ZXNsYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
-    <div class="container-banner">
-      <h1 class="animate__animated animate__backInLeft">Caravan - Rent the <strong>car</strong> of your dreams </h1>
-      <!-- <h1> Caravan - Rent the <strong>car</strong> of your dreams </h1> -->
-      <br>
-      <p class="animate__animated animate__backInLeft">Find a car for your last minute trips</p>
-      <br>
-      <%= link_to 'Browse for a car', cars_path, class: 'btn btn-primary' %>
-      <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-primary' %>
-    </div>
+<div class="banner d-flex justify-content-around" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1617814498655-ea350a397174?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTg1fHx0ZXNsYXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
+  <div class="container text-center align-self-center">
+    
+    <h1 class="animate__animated animate__backInLeft">Caravan - Rent the <strong>car</strong> of your dreams</h1>
+    <br>
+    <p id="tagline" class="animate__animated animate__backInLeft">Find a car for your last minute trips</p>
+    <%= form_tag cars_path, class: "box", method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "box",
+        placeholder: "Search for a car by location, make or model"
+      %>
+      <%= submit_tag "Search", class: "box" %>
+    <% end %>
+    <br>
+    <%= link_to 'Browse all cars', cars_path, class: 'btn btn-box' %>
+    <%= link_to 'List a car for rent', new_car_path, class: 'btn btn-box' %>
   </div>
-  <div class="container details flex-item">
+  <div class="container w-25 details">
+    <h3 class="pl-5 animate__animated animate__backInLeft mt-4">How it Works:</h3>
     <div class="cards">
-      <div class="card animate__animated animate__flipInX">
+      <div class="card our-card animate__animated animate__flipInX">
         <%= image_tag "driver.svg", alt: "alttext" %>
         <h3>Search for a car</h3>
       </div>
-      <br>
-      <div class="card animate__animated animate__flipInX">
+      <div class="card our-card animate__animated animate__flipInX">
         <%= image_tag "order.svg", alt: "alttext" %>
-        <h3>Create your booking</h3>
+        <h3>Make your booking</h3>
       </div>
-      <br>
-      <div class="card animate__animated animate__flipInX">
+      <div class="card our-card animate__animated animate__flipInX">
         <%= image_tag "car.svg", alt: "alttext" %>
         <h3>Enjoy your trip</h3>
       </div>
