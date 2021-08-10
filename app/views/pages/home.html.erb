@@ -20,7 +20,11 @@
       <% @cars = Car.first(3) %>
       <% @cars.each do |car| %>
       <div class="home-card m-auto border-0">
-        <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:120px;", alt: "alttext" %>
+        <% if car.photos.empty?%>
+          <%= image_tag "CarPlaceholder.jpg" %>
+        <% else %>
+          <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:120px;", alt: "alttext" %>
+        <% end %>
         <div class="d-flex justify-content-around">
           <p><%= car.seats %> <i class="fas fa-chair"></i></p>
           <p><%= car.location %></p>

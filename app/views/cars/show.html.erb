@@ -29,7 +29,7 @@
               carousel_image.classList.add('active')
             }
           </script>
-        <% else %>
+        <% elsif !@car.photos.empty? %>
           <%= cl_image_tag @car.photos[0].key, class: "car-show-image shadow", alt: "alttext" %>
         <% end %>
       </div>
