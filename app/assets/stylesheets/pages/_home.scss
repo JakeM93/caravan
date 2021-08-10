@@ -7,11 +7,16 @@
   background-size: cover;
   background-color: #0d0f1a;
   background-position: center;
-  height: 100vh;
-  padding: 60px 80px;
+  height:120vh;
+  padding: 150px 0;
   margin-bottom: 30px;
 }
-
+.container-banner{
+  margin-left: 50px;
+}
+.flex-item-grow{
+  flex: 1 auto;
+}
 .banner h1 {
   margin: 0;
   text-shadow: 1px 1px 3px #08070A;
