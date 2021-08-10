@@ -56,11 +56,11 @@ addr_id = 0
       transmission: Faker::Vehicle.transmission,
       fuel_type: Faker::Vehicle.fuel_type,
       seats: Faker::Number.between(from: 2, to: 8),
-      house_num: addrs[addr_id][0],
-      street: addrs[addr_id][1],
-      city: addrs[addr_id][2],
+      house_num: Faker::Number.between(from: 2, to: 8),
+      street: Faker::Address.street_name,
+      city: Faker::Address.city,
       town: addrs[addr_id][3],
-      postal_code: addrs[addr_id][4],
+      postal_code: Faker::Address.postcode,
       country: addrs[addr_id][5],
       location: addrs[addr_id][4])
       addr_id += 1
@@ -102,6 +102,10 @@ fake_data_id = 0
     description: Faker::Lorem.sentences,
     transmission: Faker::Vehicle.transmission,
     fuel_type: Faker::Vehicle.fuel_type,
+    postal_code: Faker::Address.postcode,
+    house_num: Faker::Number.between(from: 2, to: 8),
+    city: Faker::Address.city,
+    street: Faker::Address.street_name,
     seats: Faker::Number.between(from: 2, to: 8))
   car.save!
 
