@@ -48,19 +48,19 @@ addr_id = 0
   3.times do
     puts "Creating cars"
     test_car = Car.create(model: Faker::Vehicle.model,
-      make: Faker::Vehicle.manufacture,
+      make: Faker::Vehicle.make,
       reg_number: Faker::Vehicle.license_plate,
-      price: 500.00,
+      price: Faker::Number.between(from: 10, to: 100),
       user_id: test_account.id,
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      description: Faker::Lorem.sentences,
       transmission: Faker::Vehicle.transmission,
       fuel_type: Faker::Vehicle.fuel_type,
       seats: Faker::Number.between(from: 2, to: 8),
-      house_num: addrs[addr_id][0],
-      street: addrs[addr_id][1],
-      city: addrs[addr_id][2],
+      house_num: Faker::Number.between(from: 2, to: 8),
+      street: Faker::Address.street_name,
+      city: Faker::Address.city,
       town: addrs[addr_id][3],
-      postal_code: addrs[addr_id][4],
+      postal_code: Faker::Address.postcode,
       country: addrs[addr_id][5],
       location: addrs[addr_id][4])
       addr_id += 1
@@ -94,14 +94,18 @@ fake_data_id = 0
 
   puts "Making Fake Car: #{fake_data_id}"
   car = Car.create(model: Faker::Vehicle.model,
-    make: Faker::Vehicle.manufacture,
+    make: Faker::Vehicle.make,
     location: Faker::Address.postcode,
     reg_number: Faker::Vehicle.license_plate,
-    price: 500.00,
+    price: Faker::Number.between(from: 10, to: 100),
     user_id: new_user.id,
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    description: Faker::Lorem.sentences,
     transmission: Faker::Vehicle.transmission,
     fuel_type: Faker::Vehicle.fuel_type,
+    postal_code: Faker::Address.postcode,
+    house_num: Faker::Number.between(from: 2, to: 8),
+    city: Faker::Address.city,
+    street: Faker::Address.street_name,
     seats: Faker::Number.between(from: 2, to: 8))
   car.save!
 
@@ -114,4 +118,12 @@ fake_data_id = 0
   car_id: car.id,
   user_id: new_user.id)
   booking.save!
+end
+
+hello_seeds = Car.all
+hello_seeds.each do |seed|
+  url = Faker::LoremFlickr.image(size: "400x300", search_terms: ['car'])
+  file = URI.open(url)
+  seed.photos.attach(io: file, filename: Faker::File.file_name, content_type: 'image/png')
+  puts "attached photo to seed"
 end

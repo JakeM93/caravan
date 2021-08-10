@@ -1,49 +1,27 @@
 <%= simple_form_for(car) do |f| %>
-  <div class="d-flex justify-content-between">
-    <div class="mx-1 flex-fill">
-      <%= f.input :make, placeholder: 'Vauxhall', input_html: {class: 'form_placeholder'} %>
-    </div>
-    <div class="mx-1 flex-fill">
-      <%= f.input :model, placeholder: 'Corsa', input_html: {class: 'form_placeholder'} %>
-    </div>
+  <div class="d-flex justify-content-around box-half">
+    <%= f.input :make, placeholder: 'Vauxhall', input_html: {class: 'form_placeholder box-half'} %>
+    <%= f.input :model, placeholder: 'Corsa', input_html: {class: 'form_placeholder box-half'} %>
   </div>
-  <div class="d-flex justify-content-between">
-    <div class="mx-1 flex-fill">
-      <%= f.input :house_num, label: "House No", placeholder: 'Vauxhall', input_html: {class: 'form_placeholder'} %>
-    </div>
-    <div class="mx-1 flex-fill">
-      <%= f.input :street, placeholder: 'Corsa', input_html: {class: 'form_placeholder'} %>
-    </div>
+  <div class="d-flex justify-content-around box-half">
+    <%= f.input :house_num, label: "House No", placeholder: '08', input_html: {class: 'form_placeholder'} %>
+    <%= f.input :street, placeholder: 'Harford Street', input_html: {class: 'form_placeholder'} %>
   </div>
-  <div class="mx-1">
+  <div class="d-flex justify-content-around box-half">
     <%= f.input :postal_code, placeholder: 'PostCode / Zip Code', input_html: {class: 'form_placeholder'} %>
+    <%= f.input :reg_number, placeholder: 'DF03-TTT', input_html: {class: 'form_placeholder'} %>
   </div>
-  <div class="d-flex justify-content-between">
-    <div class="mx-1 flex-fill">
-      <%= f.input :reg_number, placeholder: 'DF03-TTT', input_html: {class: 'form_placeholder'} %>
-    </div>
-    <div class="mx-1 flex-fill">
-      <%= f.input :price, placeholder: '250', input_html: {class: 'form_placeholder'} %>
-    </div>
-  </div>
-  <div class="mx-1">
+  <div class="d-flex justify-content-around box-half">
+    <%= f.input :price, placeholder: '25', input_html: {class: 'form_placeholder'} %>
     <%= f.input :seats, placeholder: '5', input_html: {class: 'form_placeholder'} %>
   </div>
-  <div class="d-flex justify-content-between">
-    <div class="mx-3 flex-fill">
+  <div class="d-flex justify-content-around box-form">
       <%= f.input :fuel_type, as: :radio_buttons, collection: ["Petrol", "Diesel", "Gas"] %>
-    </div>
-    <div class="mx-3 flex-fill">
       <%= f.input :transmission, as: :radio_buttons, collection: ["Manual", "Automatic"] %>
-    </div>
   </div>
-  <div class="mx-1">
-    <%= f.input :description, as: :text, placeholder: 'A small family car, ideal for city breaks...', input_html: {rows: 5, cols: 5, class: 'form_placeholder'} %>
+    <%= f.input :description, as: :text, placeholder: 'A small family car, ideal for city breaks...', input_html: {rows: 5, cols: 5, class: 'form_placeholder box-form'} %>
+  <div class="d-flex justify-content-center box-half">
+    <%= f.input :photos, label: "Car Photos", as: :file, input_html: { multiple: true } %>
   </div>
-  <div class="mx-1">
-    <%= f.input :car_url, label: "Car Photos", as: :file, input_html: { multiple: true } %>
-  </div>
-  <div class="d-flex justify-content-center">
-    <%= f.submit class: 'btn btn-flat' %>
-  </div>
+    <%= f.submit class: 'btn btn-box' %>
 <% end %>

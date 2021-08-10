@@ -2,11 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-xs-1 col-6 m-auto text-center">
       <div class="row justify-content-center">
-        <% if !@car.car_url.empty? # only add carousel if custom images have been uploaded%>
+        <% if !@car.photos.attached? # only add carousel if custom images have been uploaded%>
           <!-- Bootstrap Carousel -->
           <div id="carouselExampleControls" class="carousel slide mx-auto" data-ride="carousel" style="max-width:400px">
             <div class="carousel-inner">
-              <% @car.car_url.each do |photo| %>
+              <% @car.photos.each do |photo| %>
                 <div class="carousel-item">
                   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block' %>
                 </div>
@@ -29,8 +29,8 @@
               carousel_image.classList.add('active')
             }
           </script>
-        <% else %>
-          <img class="car-show-image" src="https://images.pexels.com/photos/3226806/pexels-photo-3226806.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=311&w=250" alt="Mini Cooper">
+        <% elsif !@car.photos.empty? %>
+          <%= cl_image_tag @car.photos[0].key, class: "car-show-image shadow", alt: "alttext" %>
         <% end %>
       </div>
       <div class="row justify-content-center mt-2">
