@@ -64,20 +64,8 @@
       </div>
     </div>
     <div class="col-xs-1 col-6 car-show-map">
-    <div id="map" class="car-show-map-detail"></div>
-    <script>	mapboxgl.accessToken = '<%= ENV['MAPBOX_API_KEY'] %>';
-      const map = new mapboxgl.Map({
-      container: 'map', // container ID
-      style: 'mapbox://styles/jakem93/cks4h3d3m4obr17q6tm5vm4td', // style URL
-      center: ["<%=@car.longitude%>", "<%=@car.latitude%>"], // starting position [lng, lat]
-      zoom: 15 // starting zoom
-      });
-
-      const marker1 = new mapboxgl.Marker({color: 'black'})
-        .setLngLat(["<%=@car.longitude%>", "<%=@car.latitude%>"])
-        .addTo(map);
-      map.addControl(new mapboxgl.FullscreenControl());
-    </script>
+      <div id="map" class="car-show-map-detail" data-marker="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
   </div>
 </div>
