@@ -121,7 +121,7 @@ fake_data_id = 0
 end
 
 # hello_seeds = Car.sample(35)
-hello_seeds.each do |seed|
+Car.all.each do |seed|
   url = Faker::LoremFlickr.image(size: "400x300", search_terms: ['car'])
   file = URI.open(url)
   seed.photos.attach(io: file, filename: Faker::File.file_name, content_type: 'image/png')
