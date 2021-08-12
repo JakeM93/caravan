@@ -1,13 +1,18 @@
 <div class="container">
   <h1 class="text-center">Hi <%= current_user.first_name %>, here are your bookings:</h1>
   <ul class="list-group">
+  <script>console.log("Bookings Count:<%= @bookings.count %>")</script>
+  <script>console.log("User ID:<%= @bookings[0].user_id %>")</script>
     <% @bookings.each do |booking| %>
+      <script>console.log("Cars ID:<%= Car.find(booking.car_id).id %>")</script>
       <% last_updated = booking.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       <li class="list-group-item m-2 list-body-dark">
         <!-- <div class="card"> -->
         <div class="row">
           <div class="col-sm-5">
-          <% if Car.find(booking.car_id).photos.empty?%>
+          <% if !Car.find(booking.car_id).car_url.nil?%>
+            <%= image_tag "#{Car.find(booking.car_id).car_url}", class: "car-show-image shadow", style:"max-width:100%;", alt: "Car image"%>
+          <% elsif Car.find(booking.car_id).photos.empty?%>
             <%= image_tag "CarPlaceholder.jpg", class: "car-show-image shadow", alt: "Car Placeholder Image"%>
           <% else %>
             <%= cl_image_tag Car.find(booking.car_id).photos[0].key, class: "card-img-top rounded-top", style: "height:175px;", alt: "alttext" %>
