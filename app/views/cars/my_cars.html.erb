@@ -5,8 +5,12 @@
       <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       <li class="list-group-item m-2 list-body-dark">
         <div class="row">
-          <div class="col-sm-5">
-            <%= cl_image_tag car.photos[0].key, class: "car-show-image shadow", alt: "alttext" %>
+          <div class="col-sm-5 text-center">
+          <% if car.photos.empty?%>
+            <%= image_tag "CarPlaceholder.jpg", class: "car-show-image shadow", alt: "Car Placeholder Image"%>
+          <% else %>
+            <%= cl_image_tag car.photos[0].key, class: "car-show-image shadow", alt: "Car Image" %>
+          <% end %>
           </div>
           <div class="col-sm-7">
             <div class="card-body">

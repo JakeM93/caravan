@@ -24,9 +24,9 @@
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-1 mt-5 text-center">
         <div class="our-card card m-auto border-0">
         <% if car.photos.empty?%>
-          <%= image_tag "CarPlaceholder.jpg" %>
+          <%= image_tag "CarPlaceholder.jpg", class: "card-img-top rounded-top", style: "height:175px;", alt: "Car Placeholder Image"%>
         <% else %>
-          <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:175px;", alt: "alttext" %>
+          <%= cl_image_tag car.photos[0].key, class: "card-img-top rounded-top", style: "height:175px;", alt: "Car Image" %>
         <% end %>
           <div class="d-flex justify-content-around">
             <p><%= car.seats %> <i class="fas fa-chair"></i></p>
