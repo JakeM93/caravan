@@ -5,7 +5,7 @@
   <div class="box-form">
     <%= simple_form_for [@car, @booking] do |f| %>
       <%= f.input :location, placeholder: 'address', input_html: {class: 'box-form'} %>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <%= f.input :start_date, as: :date, html5: true, input_html: {class: 'box-form'} %>
         <%= f.input :end_date, as: :date, html5: true, input_html: {class: 'box-form'} %>
       </div>
