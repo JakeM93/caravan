@@ -15,11 +15,13 @@
     <%= f.input :price, placeholder: '25', input_html: {class: 'form_placeholder'} %>
     <%= f.input :seats, placeholder: '5', input_html: {class: 'form_placeholder'} %>
   </div>
-  <div class="d-flex justify-content-around box-form">
+  <div class="d-flex justify-content-around">
       <%= f.input :fuel_type, as: :radio_buttons, collection: ["Petrol", "Diesel", "Gas"] %>
       <%= f.input :transmission, as: :radio_buttons, collection: ["Manual", "Automatic"] %>
   </div>
-    <%= f.input :description, as: :text, placeholder: 'A small family car, ideal for city breaks...', input_html: {rows: 5, cols: 5, class: 'form_placeholder box-form'} %>
+  <div class="d-flex justify-content-center">
+    <%= f.input :description, as: :text, placeholder: 'A small family car, ideal for city breaks...', input_html: {rows: 5, cols: 5, class: 'form_placeholder'} %>
+  </div>
   <div class="d-flex justify-content-center box-half">
     <%= f.input :photos, label: "Car Photos", as: :file, input_html: { multiple: true } %>
   </div>

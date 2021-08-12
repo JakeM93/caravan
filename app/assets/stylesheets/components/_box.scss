@@ -84,13 +84,14 @@
 }
 
 .box-form input[type = "date"]:focus {
-  width: 25vw;
+  width: 20vw;
   border-color: orange;
 }
 
 .box-form input[type = "text"]:focus {
   width: 45vw;
   border-color: orange;
+  color: #c5c6c7;
 }
 
 .box-half {
@@ -104,10 +105,31 @@
   text-align: center;
   border: 2px solid #66fcf1;
   padding: 10px 10px;
+  color: #c5c6c7;
   width: 20vw;
   outline: none;
   border-radius: 24px;
   transition: 0.25s;
+}
+
+textarea.form-control {
+  background: #2A2631;
+  margin: 10px;
+  text-align: center;
+  border: 2px solid #66fcf1;
+  padding: 10px 10px;
+  color: #c5c6c7;
+  width: 40vw;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+textarea.form-control:focus{
+  color: #c5c6c7;
+  background: #2A2631 !important;
+  border-color: orange;
+  width: 45vw;
 }
 
 .box-half input[type = "text"]:focus, .box-half input[type = "number"]:focus {

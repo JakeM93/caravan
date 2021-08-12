@@ -120,7 +120,7 @@ fake_data_id = 0
   booking.save!
 end
 
-hello_seeds = Car.all
+hello_seeds = Car.sample(35)
 hello_seeds.each do |seed|
   url = Faker::LoremFlickr.image(size: "400x300", search_terms: ['car'])
   file = URI.open(url)
