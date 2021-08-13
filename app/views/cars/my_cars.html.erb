@@ -1,12 +1,16 @@
 <div class="container">
   <h1 class="text-center">Hi <%= current_user.first_name %>, here are your cars:</h1>
   <ul class="list-group">
+      <script>console.log("Car/s Count:<%= @cars.count %>")</script>
+      <script>console.log("User ID:<%= @cars[0].user_id %>")</script>
     <% @cars.each do |car| %>
       <% last_updated = car.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
       <li class="list-group-item m-2 list-body-dark">
         <div class="row">
-          <div class="col-sm-5 text-center">
-          <% if car.photos.empty?%>
+          <div class="col-sm-5 text-center" style="max-width:400px">
+          <% if !car.car_url.nil?%>
+            <%= image_tag "#{car.car_url}", class: "car-show-image shadow", style:"max-width:100%;", alt: "Car image"%>
+          <% elsif car.photos.empty?%>
             <%= image_tag "CarPlaceholder.jpg", class: "car-show-image shadow", alt: "Car Placeholder Image"%>
           <% else %>
             <%= cl_image_tag car.photos[0].key, class: "car-show-image shadow", alt: "Car Image" %>
